@@ -12,8 +12,8 @@ Aimbot.Configuration = {
     AliveCheck = false,
     FovCheck = false,
 
-    Fov = false,
-    Visible = false,
+    Fov = true,
+    Visible = true,
     Thickness = 0.6,
     Color = Color3.fromRGB(255, 255, 255),
     LockColor = Color3.fromRGB(255, 0, 0),
@@ -24,7 +24,7 @@ Aimbot.Configuration = {
     SelectedPart = { "Head" },
     maxDistance = 2000,
     sensitivity = 0.1,
-    AimBotEnabled = false,
+    AimBotEnabled = true,
     aimbotActive = false,
     AimToggleMode = false,
     AimKey = Enum.UserInputType.MouseButton1, 
@@ -45,6 +45,12 @@ FOV.Color = Aimbot.Configuration.Color
 FOV.Filled = Aimbot.Configuration.Filled
 FOV.Radius = Aimbot.Configuration.Size
 FOV.Position = Vector2.new(Cam.ViewportSize.X / 2, Cam.ViewportSize.Y / 2)
+
+function Aimbot.UpdateAimKey(newAimKey)
+    Aimbot.Configuration.AimKey = newAimKey
+    print("AimKey updated to:", newAimKey)
+end
+
 function Aimbot.Load()
 local currentTargetPart = Aimbot.Configuration.SelectedPart[1]
 local function findTargetPart(player, targetPartName)
